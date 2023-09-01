@@ -1,4 +1,4 @@
-export const keybindings = [
+let keybindings = [
     {
         name: completion_menu
         modifier: none
@@ -453,5 +453,23 @@ export const keybindings = [
         keycode: char_c
         mode: emacs
         event: {edit: capitalizechar}
+    }
+    {
+      name: zoxide_menu
+      modifier: control
+      keycode: char_o
+      mode: [emacs, vi_normal, vi_insert]
+      event: [
+        { send: menu name: zoxide_menu }
+      ]
+    }
+    {
+      name: edit
+      modifier: alt
+      keycode: char_e
+      mode: [emacs, vi_normal, vi_insert]
+      event: [
+        { send: OpenEditor }
+      ]
     }
 ]
