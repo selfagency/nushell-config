@@ -1,0 +1,23 @@
+load-env {
+    "BAT_THEME": "Dracula",
+    "EDITOR": "hx",
+    "VISUAL": "code",
+    "GLAMOUR_STYLE": "dark",
+    "GPG_TTY": (tty),
+    "HOMEBREW_NO_ENV_HINTS": "true",
+    "LANG": "en_US.UTF-8",
+    "LC_CTYPE": "en_US.UTF-8",
+    "MANPAGER": "most",
+    "PAGER": "most",
+    "OPENAI_API_KEY": "",
+    "RICH_THEME": "dracula",
+    "CPPFLAGS": "-I/usr/local/opt/ruby/include",
+    "GEM_HOME": $"($env.HOME)/.gem",
+    "GOPATH": $"($env.HOME)/go",
+    "JAVA_HOME": "/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home",
+    "LDLFLAGS": "-F /Library/Frameworks -L/usr/local/opt/ruby/lib",
+    "PATH_TO_FX": "/usr/local/etc/javafx/javafx-sdk-11.0.2/lib",
+    "RUBY_CONFIGURE_OPTS": "--with-openssl-dir=/opt/homebrew/opt/openssl@1.1",
+    "OP_PLUGIN_ALIASES_SOURCED": "1",
+    "OPENSSL_CFLAGS": "-Wno-error=implicit-function-declaration"
+}
