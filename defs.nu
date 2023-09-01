@@ -1,3 +1,11 @@
+export def dir [path?: string] {
+    if ($path == null) {
+        ls -a
+    } else {
+        ls -a $path
+    } | sort-by -i type name | grid -c
+}
+
 export def delds [] = {
     m dir delete dsfiles
 }

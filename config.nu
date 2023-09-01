@@ -129,5 +129,7 @@ source "~/Library/Application Support/nushell/completions.nu" # completions
 source "~/Library/Application Support/nushell/defs.nu" # defs
 source "~/Library/Application Support/nushell/modules.nu" # modules
 source "~/Library/Application Support/nushell/aliases.nu" # aliases
+source "~/Library/Application Support/nushell/prompt.nu" # prompt
 
 neofetch
+source /Users/daniel/.config/broot/launcher/nushell/br

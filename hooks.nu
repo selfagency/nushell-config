@@ -3,15 +3,12 @@ let hooks = {
     pre_execution: [{ null }] # run before the repl input is run
     env_change: {
         PWD: [
-            {|before, after|try {print (ls | sort-by -i type name | grid -c)}}
             {|before, after|
-            {||
-    			try {
-        			if (ls .git | length) > 0 and (git status -s | str length) > 0 {
-            			onefetch
-        			}
+                try {
+                    if (ls .git | length) > 0 and (git status -s | str length) > 0 { onefetch }
                 }
-            }}
+            }
+            {|before, after|try {print (ls -a | sort-by -i type name | grid -c)}}
       	    {|before, after|
       		    zoxide add -- $env.PWD
       	    }
