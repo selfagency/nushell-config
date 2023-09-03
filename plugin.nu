@@ -1,4 +1,4 @@
-register /Users/daniel/.cargo/bin/nu_plugin_highlight  {
+register ~/.cargo/bin/nu_plugin_highlight  {
   "sig": {
     "name": "highlight",
     "usage": "Syntax highlight source code.",

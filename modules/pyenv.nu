@@ -1,5 +1,5 @@
 $env.PATH | where {|it| $it | str contains ".pyenv/shims" } | drop
-$env.PATH | append /Users/daniel/.pyenv/shims
+$env.PATH | append ~/.pyenv/shims
 $env.PYENV_SHELL = nu
 
 def pyenv [cmd:string, arguments?:list<string>] {

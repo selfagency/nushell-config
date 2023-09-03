@@ -9,7 +9,6 @@ load-env {
     "LC_CTYPE": "en_US.UTF-8",
     "MANPAGER": "most",
     "PAGER": "most",
-    "OPENAI_API_KEY": "",
     "RICH_THEME": "dracula",
     "CPPFLAGS": "-I/usr/local/opt/ruby/include",
     "GEM_HOME": $"($env.HOME)/.gem",

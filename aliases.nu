@@ -6,4 +6,4 @@ alias open = ^open
 alias tailscale = /Applications/Tailscale.app/Contents/MacOS/Tailscale
 alias tower = gittower
 alias nvm = fnm
-alias pick = pup
+alias pick = htmlq

@@ -1,6 +1,6 @@
 let hooks = {
-    pre_prompt: [{ null }] # run before the prompt is shown
-    pre_execution: [{ null }] # run before the repl input is run
+    pre_prompt: [{ null }]
+    pre_execution: [{ null }]
     env_change: {
         PWD: [
             {|before, after|
@@ -12,9 +12,9 @@ let hooks = {
       	    {|before, after|
       		    zoxide add -- $env.PWD
       	    }
-        ] # run if the PWD environment is different since the last repl input
+        ]
     }
-    display_output: "if (term size).columns >= 100 { table -e } else { table }" # run to display the output of a pipeline
+    display_output: "if (term size).columns >= 100 { table -e } else { table }"
     command_not_found: {|cmd|
         let commands_in_path = (
             $env.PATH | each {|directory|
@@ -44,5 +44,5 @@ let hooks = {
         )
 
         $"\ndid you mean?\n($pretty_commands | str join "\n")"
-    } # return an error message when a command is not found
+    }
 }

@@ -13,4 +13,4 @@ def start_zellij [] {
   }
 }
 
-start_zellij
+# start_zellij

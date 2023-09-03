@@ -2,10 +2,6 @@
 #
 # version = "0.84.0"
 
-# Specifies how environment variables are:
-# - converted from a string to a value on Nushell startup (from_string)
-# - converted from a value back to a string when running external commands (to_string)
-# Note: The conversions happen *after* config.nu is loaded
 $env.ENV_CONVERSIONS = {
     "PATH": {
         from_string: { |s| $s | split row (char esep) | path expand --no-symlink }
@@ -18,15 +14,16 @@ $env.ENV_CONVERSIONS = {
 }
 
 # Directories to search for scripts when calling source or use
-$env.NU_LIB_DIRS = [
-    # ($nu.default-config-dir | path join 'scripts') # add <nushell-config-dir>/scripts
-]
+$env.NU_LIB_DIRS = []
 
 # Directories to search for plugin binaries when calling register
-$env.NU_PLUGIN_DIRS = [
-    # ($nu.default-config-dir | path join 'plugins') # add <nushell-config-dir>/plugins
-]
+$env.NU_PLUGIN_DIRS = []
 
-source "~/Library/Application Support/nushell/paths.nu" # paths
-fnm env --shell power-shell | fnm-nushell | from json | load-env # node manager
-source "~/Library/Application Support/nushell/envvars.nu" # envvars
+source ~/.config/nushell/paths.nu       # paths
+source ~/.config/nushell/envvars.nu     # envvars
+source ~/.config/nushell/privatevars.nu # private vars
+
+let user = (whoami) | str trim
+if ($user != 'root') {
+    fnm env --shell power-shell | fnm-nushell | from json | load-env # node manager
+}
