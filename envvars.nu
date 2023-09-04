@@ -1,7 +1,7 @@
 load-env {
     "BAT_THEME": "Dracula",
-    "EDITOR": "hx",
-    "VISUAL": "code",
+    "EDITOR": "micro",
+    "VISUAL": "micro",
     "GLAMOUR_STYLE": "dark",
     "GPG_TTY": (tty),
     "HOMEBREW_NO_ENV_HINTS": "true",

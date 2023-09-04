@@ -12,7 +12,7 @@ use ~/Developer/nu_scripts/modules/network/remoting/remoting.nu
 use ~/Developer/nu_scripts/modules/to-json-schema/to-json-schema.nu
 use ~/.config/nushell/modules/zellij.nu
 use ~/.config/nushell/modules/starship.nu
-
+use ~/.config/nushell/modules/bru.nu
 
 # asdf
 # $env.ASDF_NU_DIR = (brew --prefix asdf | str trim | into string | path join 'libexec')
