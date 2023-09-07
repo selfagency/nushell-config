@@ -1,19 +1,12 @@
 use std log
 
-# autoremove
-# bundle
-# cleanup
 # completions
-# deps
 # fetch
 # graph
 # help
 # home
-# info
 # install
-# leaves
 # link
-# list
 # log
 # migrate
 # missing
@@ -46,16 +39,18 @@ use std log
 # which-update
 
 export-env {
-  $env.PATH = ($env.PATH
-      | prepend $"(^brew --prefix)/sbin"
-      | prepend $"(^brew --prefix)/bin"
+    $env.PATH = ($env.PATH
+        | prepend $"(^brew --prefix)/sbin"
+        | prepend $"(^brew --prefix)/bin"
     )
 }
 
 export use ./bru/command-not-found.nu
 export use ./bru/config.nu
+export use ./bru/deps.nu
 export use ./bru/doctor.nu
 export use ./bru/info.nu *
+export use ./bru/leaves.nu
 export use ./bru/list.nu
 export use ./bru/search.nu
 export use ./bru/services.nu
