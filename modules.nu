@@ -9,6 +9,7 @@ use ~/Developer/nu_scripts/modules/formats/to-ini.nu
 use ~/Developer/nu_scripts/modules/git/git-v2.nu
 use ~/Developer/nu_scripts/modules/network/ssh.nu
 use ~/Developer/nu_scripts/modules/network/remoting/remoting.nu
+# use ~/Developer/nu_scripts/modules/rbenv/rbenv.nu *
 use ~/Developer/nu_scripts/modules/to-json-schema/to-json-schema.nu
 use ~/.config/nushell/modules/zellij.nu
 use ~/.config/nushell/modules/starship.nu

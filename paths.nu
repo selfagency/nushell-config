@@ -9,8 +9,7 @@ $env.PATH = (
     | append /opt/homebrew/bin
     | append /opt/homebrew/opt/rabbitmq/sbin
     | append /Applications
-    | append /usr/local/lib/ruby/gems/3.0.0/bin
-    | append /usr/local/opt/ruby/bin
+    | append /opt/homebrew/opt/ruby/bin
     | append /usr/local/bin
     | append /usr/local/sbin
     | append /usr/sbin
