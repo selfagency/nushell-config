@@ -1,5 +1,5 @@
 # `services` to table
-export def main [subcommand: string, service: string] {
+export def main [subcommand: string, service?: string] {
     if ($subcommand == 'list' or $subcommand == 'ls') {
         let services = (^brew services list --json)
             | from json

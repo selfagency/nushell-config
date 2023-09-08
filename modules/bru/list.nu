@@ -1,12 +1,34 @@
 # `list` to table
 export def main [--extended (-e)] {
-    mut res = (^brew info --installed --json) | from json
+    let res = (^brew info --installed --json=v2 | from json)
+
+    let casks = ($res.casks
+        | upsert full_name { |r| $r.name }
+        | upsert name { |r| $r.token }
+        | insert license null
+        | insert pinned false
+        | reject token)
+
+    let formulae = $res.formulae
+
+    mut output = ($formulae
+        | merge $casks
+        | upsert type { |r| if 'token' in $r { 'cask' } else { 'formula' } }
+        | filter { |r| $r.installed != null }
+        | update installed { |r|
+            if (($r.installed | describe) != 'string') {
+                $r.installed | first | get version
+            } else {
+                $r.installed
+            }
+        }
+        | sort)
 
     if (not $extended) {
-        $res = ($res
-            | select name desc homepage license installed pinned outdated
-            | update installed {|r| $r.installed | first | get version}
+        $output = ($output
+            | select name desc homepage license type installed pinned outdated
+            | rename name description homepage license type version pinned outdated
         )
     }
-    return $res
+    return $output
 }

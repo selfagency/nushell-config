@@ -4,15 +4,30 @@ def info-cask [formula: string, extended?: bool] {
         mut c = (^brew info --json=v2 --casks $formula | from json | get casks)
         if (not $extended) {
             $c = ($c
-                | first
-                | select token name desc homepage version caveats
+                | select token name desc homepage version artifacts
                 | insert type 'cask'
-                | update name {|r| $r.name | first}
+                | rename name application description homepage version artifacts
+                | update application { |r| $r.application | first }
+                | update artifacts { |r|
+                    (
+                        $r.artifacts
+                            | filter { |x| ('app' in $x) or ('binary' in $x) or ('pkg' in $x) }
+                            | each { |x|
+                                if ('app' in $x) {
+                                    return ($x.app | first)
+                                }
+                                if ('binary' in $x) {
+                                    return ($x.binary | first)
+                                }
+                                if ('pkg' in $x) {
+                                    return ($x.pkg | first)
+                                }
+                            }
+                    )
+                }
             )
-        } else {
-            $c = ($c | first)
         }
-        return $c
+        return ($c | first)
     } catch {|err|
         log debug $err.msg
     }
@@ -23,16 +38,16 @@ def info-formula [formula: string, extended?: bool] {
         mut f = (^brew info --json=v2 --formula $formula | from json | get formulae)
         if (not $extended) {
             $f = ($f
-                | first
-                | select name desc homepage tap build_dependencies dependencies versions caveats
+                | select name desc homepage license tap build_dependencies dependencies versions caveats keg_only options installed
                 | insert type 'formula'
             )
-        } else {
-            $f = ($f | first)
         }
-        return $f
+        return ($f | first)
     } catch {|err|
-        log debug $err.msg
+        log debug $"($err.msg)"
+
+        print "\n"
+        info-cask $formula $extended
     }
 }
 

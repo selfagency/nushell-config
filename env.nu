@@ -22,8 +22,3 @@ $env.NU_PLUGIN_DIRS = []
 source ~/.config/nushell/paths.nu       # paths
 source ~/.config/nushell/envvars.nu     # envvars
 source ~/.config/nushell/privatevars.nu # private vars
-
-let user = (whoami) | str trim
-if ($user != 'root') {
-    fnm env --shell power-shell | fnm-nushell | from json | load-env # node manager
-}
