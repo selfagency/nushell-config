@@ -20,5 +20,5 @@ $env.NU_LIB_DIRS = []
 $env.NU_PLUGIN_DIRS = []
 
 source ~/.config/nushell/paths.nu       # paths
-source ~/.config/nushell/envvars.nu     # envvars
 source ~/.config/nushell/privatevars.nu # private vars
+source ~/.config/nushell/envvars.nu     # envvars
