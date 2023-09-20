@@ -1,8 +1,8 @@
 # Nushell Config File
 # version = "0.84.0"
-source ~/.config/nushell/keybindings.nu # keybindings
-source ~/.config/nushell/hooks.nu       # hooks
-source ~/.config/nushell/menus.nu       # menus
+source "~/.config/nushell/keybindings.nu" # keybindings
+source "~/.config/nushell/hooks.nu"       # hooks
+source "~/.config/nushell/menus.nu"       # menus
 
 $env.config = {
     show_banner: false
@@ -108,14 +108,14 @@ $env.config = {
 }
 
 # theme
-use ~/Developer/nu_scripts/themes/themes/outrun-dark.nu
+use "~/.config/nushell/modules/nu_scripts/themes/themes/outrun-dark.nu"
 $env.config = ($env.config | merge {color_config: (outrun-dark)})
 
-source ~/.config/nushell/completions.nu # completions
-source ~/.config/nushell/defs.nu        # defs
-source ~/.config/nushell/modules.nu     # modules
-source ~/.config/nushell/aliases.nu     # aliases
-source ~/.config/nushell/prompt.nu      # prompt
+source "~/.config/nushell/completions.nu" # completions
+source "~/.config/nushell/defs.nu"        # defs
+source "~/.config/nushell/modules.nu"     # modules
+source "~/.config/nushell/aliases.nu"     # aliases
+source "~/.config/nushell/prompt.nu"      # prompt
 
 neofetch
 
