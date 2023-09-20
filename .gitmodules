@@ -1,3 +1,6 @@
 [submodule "modules/nu_scripts"]
 	path = modules/nu_scripts
 	url = https://github.com/nushell/nu_scripts.git
+[submodule "modules/bru"]
+	path = modules/bru
+	url = https://github.com/selfagency/bru
