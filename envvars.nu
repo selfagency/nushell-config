@@ -18,8 +18,11 @@ load-env {
     "VISUAL": "hx"
 }
 
-if (sys | get host.long_os_version | str downcase | str contains "linux") {
-    if (sys | get host.kernel_version | str downcase | str contains "microsoft") {
+let is_linux: bool = (sys | get host.long_os_version | str downcase | str contains "linux")
+let is_wsl: bool = (sys | get host.kernel_version | str downcase | str contains "microsoft")
+
+if ($is_linux) {
+    if ($is_wsl) {
         load-env {
             "BROWSER": "wslview",
             "GIT_SSH": "/mnt/c/windows/System32/OpenSSH/ssh.exe"
@@ -31,7 +34,7 @@ if (sys | get host.long_os_version | str downcase | str contains "linux") {
         "HOST_IP": (grep nameserver /etc/resolv.conf | awk '{print $2; exit;}'),
         "QT_QPA_PLATFORM": "xcb",
         "QT_SCALE_FACTOR": "2",
-        "SSH_AUTH_SOCK": $"($env.HOME)/.ssh/agent.sock"
+        # "SSH_AUTH_SOCK": $"($env.HOME)/.ssh/agent.sock"
     }
 } else {
     load-env {

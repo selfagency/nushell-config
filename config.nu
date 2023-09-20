@@ -1,5 +1,8 @@
 # Nushell Config File
 # version = "0.84.0"
+let is_linux: bool = (sys | get host.long_os_version | str downcase | str contains "linux")
+let is_wsl: bool = (sys | get host.kernel_version | str downcase | str contains "microsoft")
+
 source "~/.config/nushell/keybindings.nu" # keybindings
 source "~/.config/nushell/hooks.nu"       # hooks
 source "~/.config/nushell/menus.nu"       # menus
@@ -116,6 +119,10 @@ source "~/.config/nushell/defs.nu"        # defs
 source "~/.config/nushell/modules.nu"     # modules
 source "~/.config/nushell/aliases.nu"     # aliases
 source "~/.config/nushell/prompt.nu"      # prompt
+
+# if ($is_wsl) {
+#     1p-ssh-agent
+# }
 
 neofetch
 

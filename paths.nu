@@ -1,6 +1,8 @@
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
-if (sys | get host.long_os_version | str downcase | str contains "linux") {
+let is_linux: bool = (sys | get host.long_os_version | str downcase | str contains "linux")
+
+if ($is_linux) {
     $env.PYENV_ROOT = $"($env.HOME)/.pyenv"
 
     $env.PATH = ($env.PATH

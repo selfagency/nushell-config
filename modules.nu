@@ -1,9 +1,11 @@
 # modules
+
 source "~/.config/nushell/modules/atuin.nu"
 source "~/.config/nushell/modules/broot.nu"
 source "~/.config/nushell/modules/zoxide.nu"
 source "~/.config/nushell/modules/not-found.nu"
 source "~/.config/nushell/modules/nu_scripts/modules/network/sockets/sockets.nu"
+use "~/.config/nushell/modules/1p-ssh-agent.nu"
 use "~/.config/nushell/modules/bru.nu"
 use "~/.config/nushell/modules/fnm.nu"
 use "~/.config/nushell/modules/fuck.nu"
